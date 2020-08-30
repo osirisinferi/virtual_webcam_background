@@ -43,13 +43,9 @@ def get_filters(config, filter_list):
 
 def apply_filters(frame, mask, part_masks, heatmap_masks, image_filters):
     for image_filter in image_filters:
-        try:
-            frame = image_filter.apply(frame=frame, mask=mask,
-                                       part_masks=part_masks,
-                                       heatmap_masks=heatmap_masks)
-        except TypeError:
-            # caused by a wrong number of arguments in the config
-            pass
+        frame = image_filter.apply(frame=frame, mask=mask,
+                                   part_masks=part_masks,
+                                   heatmap_masks=heatmap_masks)
     return frame
 
 
@@ -66,3 +62,4 @@ from . import images
 from . import video
 from . import webcam
 from . import anonymize
+from . import hologram
